@@ -15,5 +15,9 @@ Let's trace its networking journey, from the early days of the Web to today's mo
 # Phase 1: The Physical Server Era
 
 When our platform first launched, everything ran on a single physical server.  
-One powerful machine in a data center running our web application, database, and all the services.  
+One powerful machine in a data center running our web application, database, and all the services, using a single public IP address.  
 
+
+
+---
+2/38
