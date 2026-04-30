@@ -1,2 +1,9 @@
-# Networking-Fundamentals-TechWorld-with-Nana
-This covers the core networking fundamentals every engineer needs to know - from basic IP addresses to advanced Kubernetes networking
+# Resources 
+
+- https://www.youtube.com/watch?v=w0SQGCt-6Ro
+
+# Intro
+
+In this course, we'll explore the evolution of networking in modern infrastructures :  
+physical servers > virtual machines > containers > container orchestration tools  
+
