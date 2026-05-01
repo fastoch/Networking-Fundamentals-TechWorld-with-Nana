@@ -36,9 +36,32 @@ Those addresses are automatically translated into IP addresses which computing d
 
 There are DNS servers scattered all across the world to enable this perpetual automatic translation between URLs and IP addresses.   
 
+## How does communication between end users and web applications work?
+
+When we browse the web and interact with web applications via our web browser, we send HTTP requests to web servers.  
+In return, they serve us the web pages and all the data we're asking for.  
+
+**HTTP** is the protocol used for communication between web servers.  
+It stands for Hyper-Text Transfer Protocol.  
+
+Once the (client) requests we make reach the targeted web servers, how do they get to the actual web application that is running on those servers?  
+- Data leaves our computer through a **network interface** and travels over the Internet until it reaches a server's network interface
+- Most common interfaces are: **eth0** (first Ethernet interface), eth1, **wlan0** (first Wi-Fi interface), wlan1, and **lo** (loopback)
+- each network interface has an **IP address** associated with it
+- each IP address has many **ports** that can be open or closed to communication
+- each open port can be used by an application to "listen" to incoming traffic
+- for HTTP and HTTPS traffic, respective port numbers are 80 and 443
+- There's a list of common ports (known ports) for each type of application/service
+- The Operating System is in charge of routing incoming traffic to the proper application/service
+
+## Limitation 1: Single Point of Failure
+
+So far, we've been running our e-commerce web application on a single server.  
+What if something happens to this server?  
+
 # Phase 2: Virtual Machines (VMs)
 
 
 
 ---
-5/38
+9/38
