@@ -31,8 +31,8 @@ To connect two networks together, we use special devices named **routers**.
 
 Web sites and Web applications are hosted on Web servers.  
 
-Thanks to **DNS**, which stands for "Domain Name System", we can use human-readable addresses (URLs) to communicate with any web server.  
-Those addresses are automatically translated into IP addresses which computers and network devices can "understand" and work with.  
+Thanks to **DNS**, "Domain Name System", we can use human-readable addresses (URLs) to communicate with any web server.  
+Those addresses are automatically translated into IP addresses which computing devices can "understand" and work with.  
 
 There are DNS servers scattered all across the world to enable this perpetual automatic translation between URLs and IP addresses.   
 
