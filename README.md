@@ -112,7 +112,15 @@ This process uses **Network Address Translation** (NAT) to convert the private i
 
 And every bit of traffic is filtered by **software firewalls**, which check the data, enforce security policies, and only allow safe permitted requests and responses to go through, which keeps the entire communication secure.  
 
+# Phase 3: Cloud Networking
 
+Our e-commerce platform kept growing, and maintainning and configuring our physical servers and VMs became a hassle.  
+Which is why we decided to rent our VMs instead of owning them.  
+
+We chose a cloud provider, and all our VMs now run within a VPC = a Virtual Private Cloud.  
+Our VPC is divided into private and public subnets:
+- VMs in public subnets are accessible to any device connected to the Internet
+- VMs in private subnets are used for databases and applications that only our internal staff has access to
 
 ---
-16/38
+21/38
