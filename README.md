@@ -69,7 +69,27 @@ So far, we've been running our e-commerce platform on a single server.
 To answer the limitations of the old infrastructure model, we moved to virtualization.  
 Running multiple virtual machines on one physical server.  
 
+A VM is an independent, fully functional computer created by software and running inside a real physical server.  
 
+Each VM gets its own slice of system resources from the host system: vCPUs, vRAM, storage space, and network access.  
+Every VM runs its own guest OS, onto which it can install apps, set configurations, and host network connections.  
+
+VMs are strongly isolated from each other and from the host system.  
+They can communicate over a virtual network created by the hypervisor.  
+This virtual network is like having invisible network cables connecting virtual computers inside our physical server.  
+
+>[!important]
+>The hypervisor is a special program that sits between the physical server and the virtual machines.
+>It lets the physical server shares its hardware resources with the VMs we create.
+
+## Benefits for our e-commerce web app
+
+Using VMs gives us:
+- isolation between services: a crash in one VM does not affect others
+- better resource utilization
+- portability
+- easy backups: their entire state (OS, data, configuration) can be saved as a snapshot file
+- easy recovery: snapshots can be quickly restored
 
 ---
-11/38
+13/38
