@@ -89,7 +89,20 @@ Using VMs gives us:
 - better resource utilization
 - portability
 - easy backups: their entire state (OS, data, configuration) can be saved as a snapshot file
-- easy recovery: snapshots can be quickly restored
+- easy recovery: snapshots can be quickly restored, or copied to another physical server
+
+And if the physical server that hosts our VMs stops working, we can easily restore them on another server, as long as we had external backups.  
+
+## Main Networking Components of VMs
+
+When you run multiple VMs inside one physical server, each VM has a virtual network interface, which in turn has: 
+- a unique private IP address: which allows VMs to talk to each other
+- a firewall: which checks incoming and outgoing traffic based on rules we specify
+
+>[!note]
+>Main firewall checks include:
+- verifying the sender's identity
+- 
 
 ---
-13/38
+16/38
