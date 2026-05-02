@@ -107,6 +107,7 @@ Main **firewall checks** include:
 All internal traffic is routed and managed by the **hypervisor**, which also keeps outsiders out unless invited.  
 
 If a VM needs to communicate with the outside world, its traffic goes from the internal virtual network out to the Internet through the physical server's public IP.  
+
 This process uses **Network Address Translation** (NAT) to convert the private internal IP addresses to the public one.  
 
 And every bit of traffic is filtered by **software firewalls**, which check the data, enforce security policies, and only allow safe permitted requests and responses to go through.  
