@@ -10,9 +10,9 @@ physical servers > virtual machines > containers > container orchestration tools
 # Use Case
 
 Imagine we have built an e-commerce platform that has grown dramatically over the years.  
-Let's trace its networking journey, from the early days (1990) of the Web to today's modern architecture.  
+Let's trace its networking journey, from the early days of the Web to today's modern architecture.  
 
-# Phase 1: The Physical Server Era
+# Phase 1: The Physical Server Era (1990s)
 
 When our e-commerce platform first launched, everything ran on a single physical server.  
 One powerful machine in a data center running our web application, database, and all the services, using a single public IP address.  
@@ -54,14 +54,22 @@ Once the (client) requests we make reach the targeted web servers, how do they g
 - There's a list of common ports (known ports) for each type of application/service
 - The Operating System is in charge of routing incoming traffic to the proper application/service
 
-## Limitation 1: Single Point of Failure
+## Limitations of having one physical server
 
-So far, we've been running our e-commerce web application on a single server.  
-What if something happens to this server?  
+So far, we've been running our e-commerce platform on a single server.  
+- **Single point of failure**: what if something happens to this server?
+- **Limited scalability**: even a powerful server might not be enough to handle a sudden increase in client requests
+- **Inefficient resource utilization**: what if activity decreases and you're paying for more resources than you need?
+- **Downtime during maintenance**: your platform remains unavailable until maintenance is over 
 
 # Phase 2: Virtual Machines (VMs)
+
+## The virtualization revolution (2000s)
+
+To answer the limitations of the old infrastructure model, we moved to virtualization.  
+Running multiple virtual machines on one physical server.  
 
 
 
 ---
-9/38
+11/38
