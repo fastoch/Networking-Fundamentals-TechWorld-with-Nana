@@ -110,7 +110,7 @@ If a VM needs to communicate with the outside world, its traffic goes from the i
 
 This process uses **Network Address Translation** (NAT) to convert the private internal IP addresses to the public one.  
 
-And every bit of traffic is filtered by **software firewalls**, which check the data, enforce security policies, and only allow safe permitted requests and responses to go through.  
+And every bit of traffic is filtered by **software firewalls**, which check the data, enforce security policies, and only allow safe permitted requests and responses to go through, which keeps the entire communication secure.  
 
 
 
