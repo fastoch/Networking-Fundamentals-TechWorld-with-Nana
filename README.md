@@ -266,8 +266,46 @@ When a new pod is scheduled, K8s calls the CNI plug-in, which:
 
 No need for port mapping, or address translation to ensure connectivity between all pods that live in the same cluster.  
 
-However, a pod's IP address changes whenever the pod is restarted, moved or replaced, which happens a lot since pods are ephemeral by design.  
+### K8s Services
+
+A pod's IP address changes whenever it's restarted, moved or replaced, which happens a lot since **pods are ephemeral** by design.  
+To solve that, we can use a K8s **Service**, which is like a beacon for a set of pods.  
+
+A Kubernetes Service provides **a stable IP address and a DNS name** that never changes.  
+When a request reaches a Service, it gets forwarded to any healthy Pod behind that Service.  
+
+To optimize resource utilization and not overload pods, K8s also handles **automatic load balancing**.  
+This is done via a component called "**Kube Proxy**".  
+
+### Kube Proxy
+
+This component runs on each node (each virtual or physical machine) and manages network rules.  
+It routes traffic to the correct Pods behind a Service, enabling load balancing and Service discovery inside the cluster.  
+
+To know where a Service lives, K8s uses a component called "**kube-dns**", the internal "phone book" where every K8s Service registers its name.  
+
+### Ingress controller
+
+Up until now, we've talked about communication between resources that live inside a K8s cluster.  
+But how can external clients access applications that are running inside Pods?  
+
+Thanks to a component called "**Ingress**".  
+That component defines how traffic from outside the cluster should reach Services inside the cluster.  
+
+Ingress is a single entry point capable of routing incoming requests based on things like hostname and URL path.  
+It makes sure that requests are authorized to enter and talk to the Service they're trying to reach.  
+
+The ingress controller's mission is to keep our K8s cluster both accessible and secure.  
+
+### Network Policies
+
+As we sad, by default, all the Pods in a K8s cluster can freely talk to each other.  
+While this makes it easy for microservices (applications) to communicate, it's not 100% secure; especially as your company grows and you want to keep sensitive areas private.  
+
+That's where Network Policies come in.  
+These are special services in Kubernetes that act like security guards and door locks in front of each Pod or Service.  
+
 
 
 ---
-32/38
+35/38
