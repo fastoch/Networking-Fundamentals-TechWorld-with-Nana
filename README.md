@@ -114,7 +114,8 @@ If a VM needs to communicate with the outside world, its traffic goes from the i
 
 This process uses **Network Address Translation** (NAT) to convert the private internal IP addresses to the public one.  
 
-And every bit of traffic is filtered by **software firewalls**, which check the data, enforce security policies, and only allow safe permitted requests and responses to go through, which keeps the entire communication secure.  
+And every bit of traffic is filtered by **software firewalls**, which check the data, enforce security policies, and only allow safe permitted requests and responses to go through, 
+which keeps the entire communication secure.  
 
 ---
 
@@ -300,12 +301,24 @@ The ingress controller's mission is to keep our K8s cluster both accessible and 
 ### Network Policies
 
 As we sad, by default, all the Pods in a K8s cluster can freely talk to each other.  
-While this makes it easy for microservices (applications) to communicate, it's not 100% secure; especially as your company grows and you want to keep sensitive areas private.  
+While this makes it easy for microservices (applications) to communicate, it's not 100% secure; especially as your company grows 
+and you want to keep sensitive areas private.  
 
 That's where Network Policies come in.  
 These are special services in Kubernetes that act like security guards and door locks in front of each Pod or Service.  
 
+We can write clear, detailed rules for who can come in or out of each Pod or Service.  
+For instance, you may decide that only Pods labeled as "API server" can access the "Database" Service on port 5432.  
 
+Network policies use criteria like Pod names, labels, even namespaces, and they work for both internal and external addresses.  
 
----
-35/38
+Once you apply a network policy, only the connections you allow are possible. Anything else is locked out.  
+In the background, K8s uses built-in network features such as IP tables or special plugins to enforce theser rules.  
+
+## Wrapping up
+
+- K8s networking starts with virtual network interfaces (CNI/veth): connects every Pod to the Cluster network  
+- It allows seamless pod-to-pod communication using Services as stable endpoints
+- It uses DNS for Service discovery by name
+- It uses Ingress for managing external access
+- It can enforce strict Network Policies to allow only approved traffic paths
