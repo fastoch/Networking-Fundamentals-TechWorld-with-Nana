@@ -130,9 +130,71 @@ Data centers were made available to end users as computing resources we can **re
 Cloud computing resources can be bought and managed via a web browser-based interface such as **AWS** (Amazon Web Services).  
 We need to pick a cloud provider, learn how to use its platform, and then we can run our VMs inside a **VPC** (Virtual Private Cloud).  
 
+## VPC and subnets
+
 A **VPC** is where a modern cloud infrastructure lives, and it can be divided into private and public subnets:
 - VMs in **public subnets** are accessible to any device connected to the Internet
-- VMs in **private subnets** are used for databases and applications that only our internal staff has access to
+- VMs in **private subnets** are used for databases or applications that only our internal staff has access to
+
+## Security groups & firewalls
+
+A firewall is a security system that monitors and controls incoming and outgoing network traffic based on rules.  
+
+## Route tables 
+
+They define how network traffic moves in a VPC, directing packets from a subnet to targets like gateways, NAT, or other subnets.  
+
+## NAT gateway 
+
+If VMs within a private subnet need to grab something from outside (like software updates), they use a **NAT gateway**.  
+A NAT gateway lets private subnet resources access the Internet for updates or APIs while blocking incoming Internet connections.  
+
+## Technical Summary
+
+VPC = logically isolated network where you launch resources like VMs, define IP ranges, create subnets, control routing, and manage secure Internet access.  
+
+**VPCs** let business segment their cloud space into isolated secure areas.  
+They can be further divided into **subnets** for different exposure levels and security needs.  
+
+- **Security groups** allows us to define and enforce fine-grained firewall policies.  
+- **Route tables** determine where network traffic is directed.  
+- **Gateways** enable connectivity: internet access or private access to other networks
 
 ---
-21/38
+
+# Phase 4: Docker Networking (from 2014)
+
+## Application Architecture: from Monolith to Microservices 
+
+Microservices are a way to build an application as a collection of small, independent services.  
+To make a microservice architecture application run the same on any machine, a new concept has emerged: **containerization**.  
+
+## The Containerization revolution
+
+A container is a lightweight portable package that contains everything an application needs in order to run:
+- a base image (an OS)
+- dependencies
+- libraries
+- configuration data
+
+Each microservice can be deployed and run as a container from what is called a "container image".  
+To build a container image using Docker, we need to write a **Dockerfile**.  
+
+Such containers can run on any server (VM), regardless of what's installed and configured on the host system.  
+
+>[!important]
+>No use of containers is possible without a **Linux** system.
+
+## Container networking on top of VMs
+
+Containers are lightweight environments that run on top of VMs, and share the host Operating System (OS).  
+They actually just share the OS **kernel**, which needs to be a **Linux** kernel.  
+
+We saw that we can run multiple VMs on a single physical server.  
+We can now run multiple containers inside each of these VMs.  
+
+Containers are lightweight because they share the VM's OS kernel, and only provide an isolated application layer on top of it.  
+
+
+---
+25/38
