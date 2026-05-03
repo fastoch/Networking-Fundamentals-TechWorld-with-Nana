@@ -229,7 +229,9 @@ docker run -p 80:8080
 
 ---
 
-# Phase 5: Container Orchestration with Kubernetes
+# Phase 5: Kubernetes Networking
+
+## Container Orchestration with Kubernetes
 
 Our application is now used by millions of people across the world, and we cannot manage hundreds of containers manually.  
 To help us managing that many containers, we need to use a container orchestration platform such as Kubernetes ("K8s").  
