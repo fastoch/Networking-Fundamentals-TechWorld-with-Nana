@@ -194,7 +194,47 @@ We saw that we can run multiple VMs on a single physical server.
 We can now run multiple containers inside each of these VMs.  
 
 Containers are lightweight because they share the VM's OS kernel, and only provide an isolated application layer on top of it.  
+Which means they don't need to boot an entire OS like VMs, they just load their application layer on top of the kernel.  
+
+## How do containers communicate with each other and with the outside world?
+
+By default, Docker sets up a "**virtual bridge**", a private network where all containers runnning on the same VM can talk to each other.  
+**Docker DNS** allows communication between these containers using their names.  
+
+When our app expands to the point where it requires having multiple VMs to run our containers, Docker creates an **overlay network**.  
+**Docker Overlay Network** consists of special encrypted channels that seamlessly interconnect containers living in different VMs.  
+
+This Overlay Network that spans multiple VMs enables: 
+- reliable communication between microservices
+- scaling beyond a single virtual or physical machine
+
+>[!important]
+>Each machine (virtual or physical) is called a "node" in Kubernetes.
+>Multiple nodes can form a Kubernetes cluster, more on that later on.  
+
+## Container port mapping
+
+Of course, containers that host a web application, or client-facing front-end application, need to be publicly accessible.  
+
+Containers act like small isolated machines, each having its own ports and network space.  
+When a VM receives a request from the Internet, how does that request ends up inside the container?  
+
+We map the host (VM) port to the container port, for example:  
+"If that VM receives requests on port 80, forward them to the container called "web-app" on port 8080.  
+
+Example Docker command that includes port mapping:  
+```bash
+docker run -p 80:8080
+```
+
+---
+
+# Phase 5: Container Orchestration with Kubernetes
+
+Our application is now used by millions of people across the world, and we cannot manage hundreds of containers manually.  
+To help us managing that many containers, we need to use a container orchestration platform such as Kubernetes ("K8s").  
+
 
 
 ---
-25/38
+28/38
