@@ -12,6 +12,8 @@ physical servers > virtual machines > containers > container orchestration tools
 Imagine we have built an e-commerce platform that has grown dramatically over the years.  
 Let's trace its networking journey, from the early days of the Web to today's modern architecture.  
 
+---
+
 # Phase 1: The Physical Server Era (1990s)
 
 When our e-commerce platform first launched, everything ran on a single physical server.  
@@ -61,6 +63,8 @@ So far, we've been running our e-commerce platform on a single server.
 - **Limited scalability**: even a powerful server might not be enough to handle a sudden increase in client requests
 - **Inefficient resource utilization**: what if activity decreases and you're paying for more resources than you need?
 - **Downtime during maintenance**: your platform remains unavailable until maintenance is over 
+
+---
 
 # Phase 2: Virtual Machines (VMs)
 
@@ -112,15 +116,23 @@ This process uses **Network Address Translation** (NAT) to convert the private i
 
 And every bit of traffic is filtered by **software firewalls**, which check the data, enforce security policies, and only allow safe permitted requests and responses to go through, which keeps the entire communication secure.  
 
-# Phase 3: Cloud Networking
+---
 
-Our e-commerce platform kept growing, and maintainning and configuring our physical servers and VMs became a hassle.  
-Which is why we decided to rent our VMs instead of owning them.  
+# Phase 3: Cloud Networking (from 2006)
 
-We chose a cloud provider, and all our VMs now run within a VPC = a Virtual Private Cloud.  
-Our VPC is divided into private and public subnets:
-- VMs in public subnets are accessible to any device connected to the Internet
-- VMs in private subnets are used for databases and applications that only our internal staff has access to
+When a company grows, it can become a hassle to maintain its IT **infrastructure**.  
+Because of that reality, **cloud computing** was born (in the early 2000s).  
+
+Big companies bought a whole bunch of powerful servers, configured them, and connected them to the Internet.  
+These companies are called "**cloud providers**" and their server farms are "**data centers**".  
+Data centers were made available to end users as computing resources we can **rent** to fulfill our **infrastructure** needs.  
+
+Cloud computing resources can be bought and managed via a web browser-based interface such as **AWS** (Amazon Web Services).  
+We need to pick a cloud provider, learn how to use its platform, and then we can run our VMs inside a **VPC** (Virtual Private Cloud).  
+
+A **VPC** is where a modern cloud infrastructure lives, and it can be divided into private and public subnets:
+- VMs in **public subnets** are accessible to any device connected to the Internet
+- VMs in **private subnets** are used for databases and applications that only our internal staff has access to
 
 ---
 21/38
