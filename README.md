@@ -239,9 +239,35 @@ To help us handling that many containers, we need to use a container orchestrati
 K8s knows every container's status, places new ones in the less busy servers, and restarts/replaces faulty ones automatically.  
 It can also scales our infrastructure up or down to best suit business needs.  
 
-## How does K8s networking work?
+## K8s cluster's structure
 
+### Pod
+
+A **pod** in Kubernetes is the smallest deployable unit for running containerized applications.  
+It can have one or more containers that share the same IP address, network, and storage, allowing them to work closely together as a single application unit.  
+
+Every pod needs to communicate both with other pods and with the rest of the infrastructure:
+- K8s gives each pod its own IP address
+- all pods in a given cluster are part of the same internal network 
+- one pod can connect directly to any other by using its IP, even if they're running on different nodes (machines)
+
+### CNI
+
+But setting up and managing all these network connections automatically is a big challenge.  
+This is the where the **Container Network Interface** (CNI) comes in.  
+
+K8s uses a standard called CNI to automatically create a tiny virtual Ethernet interface for each pod.  
+This allows for pod to pod communication regardless of which node the pods are running on.  
+
+When a new pod is scheduled, K8s calls the CNI plug-in, which: 
+- allocates a new virtual Ethernet interface,
+- assigns it a unique IP address,
+- and sets up the routes so that pod is directly reachable from anywhere in the cluster
+
+No need for port mapping, or address translation to ensure connectivity between all pods that live in the same cluster.  
+
+However, a pod's IP address changes whenever the pod is restarted, moved or replaced, which happens a lot since pods are ephemeral by design.  
 
 
 ---
-30/38
+32/38
