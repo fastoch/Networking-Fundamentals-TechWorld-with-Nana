@@ -233,10 +233,15 @@ docker run -p 80:8080
 
 ## Container Orchestration with Kubernetes
 
-Our application is now used by millions of people across the world, and we cannot manage hundreds of containers manually.  
-To help us managing that many containers, we need to use a container orchestration platform such as Kubernetes ("K8s").  
+Our application is now used by millions of people across the world, and we cannot manage hundreds of containers by hand.  
+To help us handling that many containers, we need to use a container orchestration platform such as Kubernetes ("K8s").  
+
+K8s knows every container's status, places new ones in the less busy servers, and restarts/replaces faulty ones automatically.  
+It can also scales our infrastructure up or down to best suit business needs.  
+
+## How does K8s networking work?
 
 
 
 ---
-28/38
+30/38
